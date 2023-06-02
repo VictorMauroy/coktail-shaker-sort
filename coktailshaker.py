@@ -2,12 +2,14 @@ from random import randint
 
 my_unsorted_list = [randint(-20, 20) for _ in range(20)]
 
-def sort_coktail_shaker(list_to_sort:list) -> list :
+def sort_coktail_shaker(list_to_sort:list) -> tuple :
     """Sort a given list with the coktail shaker algorithm and give back the result
     
     Returns:
         list: the sorted list
     """
+    iteration = 0
+
     has_switched = True
     sorted_list = list_to_sort.copy()
     start_index = 0
@@ -22,6 +24,7 @@ def sort_coktail_shaker(list_to_sort:list) -> list :
                 sorted_list[i], sorted_list[i+1] = sorted_list[i+1], sorted_list[i]
                 has_switched = True
         end_index -= 1
+        iteration +=1
         
         # Descending check to move the lower value to the start
             # Range : start from end_i and end with start_i - 1 (because the end value is excluded)
@@ -31,7 +34,10 @@ def sort_coktail_shaker(list_to_sort:list) -> list :
                 sorted_list[i], sorted_list[i+1] = sorted_list[i+1], sorted_list[i]
                 has_switched = True
         start_index += 1
-    return sorted_list
+        iteration +=1
+    result = (sorted_list, iteration)
+    return result
 
 print(f"Unsorted list : {my_unsorted_list}")
-print(f"SORTED list : {sort_coktail_shaker(my_unsorted_list)}")
+coktail_sorted_list, coktail_counter = sort_coktail_shaker(my_unsorted_list) 
+print(f"SORTED list : {coktail_sorted_list} with {coktail_counter} iterations")
