@@ -1,6 +1,16 @@
 from random import randint
 
 my_unsorted_list = [randint(-20, 20) for _ in range(20)]
+subdivisions = 0
+
+def give_merge_sort(list_to_sort:list) -> tuple:
+    """Invoke merge sort and give back the sorted list and the subdivision count
+
+    Returns:
+        tuple: sorted list and subdivision count
+    """
+    global subdivisions
+    return (merge_sort(list_to_sort), subdivisions) 
 
 def merge_sort(list_to_sort:list) -> list:
     """Recursively divide a given list until each of its elements are divided
@@ -9,13 +19,14 @@ def merge_sort(list_to_sort:list) -> list:
     Returns:
         list: contains the sorted list
     """
-
+    global subdivisions
     if len(list_to_sort) <= 1 :
         return list_to_sort
     else :
         # Use of List Slicing
         first_half = list_to_sort[:len(list_to_sort)//2] # take length/2 elements from the beginning
         second_half = list_to_sort[len(list_to_sort)//2:] # take length/2 elements from the end
+        subdivisions += 1
         return merge(merge_sort(first_half), merge_sort(second_half))
 
 def merge(list_A:list, list_B:list) -> list :
@@ -50,5 +61,5 @@ def merge(list_A:list, list_B:list) -> list :
             )
             return merged_list
 
-print(f"Unsorted list : {my_unsorted_list}")
-print(f"SORTED list : {merge_sort(my_unsorted_list)}")
+"""print(f"Unsorted list : {my_unsorted_list}")
+print(f"SORTED list : {merge_sort(my_unsorted_list)}")"""
