@@ -38,6 +38,6 @@ def sort_coktail_shaker(list_to_sort:list) -> tuple :
     result = (sorted_list, iteration)
     return result
 
-print(f"Unsorted list : {my_unsorted_list}")
+"""print(f"Unsorted list : {my_unsorted_list}")
 coktail_sorted_list, coktail_counter = sort_coktail_shaker(my_unsorted_list) 
-print(f"SORTED list : {coktail_sorted_list} with {coktail_counter} iterations")
+print(f"SORTED list : {coktail_sorted_list} with {coktail_counter} iterations")"""

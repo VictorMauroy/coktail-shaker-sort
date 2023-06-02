@@ -1,5 +1,4 @@
 from random import randint
-#from coktailshaker import sort_coktail_shaker
 
 my_unsorted_list = [randint(-20, 20) for _ in range(20)]
 
@@ -28,6 +27,6 @@ def sort_combsort(list_to_sort:list) -> tuple :
     result = (sorted_list, iteration)
     return result
 
-print(f"Unsorted list : {my_unsorted_list}")
+"""print(f"Unsorted list : {my_unsorted_list}")
 comb_sorted_list, comb_iteration = sort_combsort(my_unsorted_list) 
-print(f"SORTED list (comb sort) : {comb_sorted_list} with {comb_iteration} iterations")
+print(f"SORTED list (comb sort) : {comb_sorted_list} with {comb_iteration} iterations")"""
