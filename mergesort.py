@@ -24,8 +24,9 @@ def merge_sort(list_to_sort:list) -> list:
         return list_to_sort
     else :
         # Use of List Slicing
-        first_half = list_to_sort[:len(list_to_sort)//2] # take length/2 elements from the beginning
-        second_half = list_to_sort[len(list_to_sort)//2:] # take length/2 elements from the end
+        half_length = len(list_to_sort)//2
+        first_half = list_to_sort[:half_length] # take length/2 elements from the beginning
+        second_half = list_to_sort[half_length:] # take length/2 elements from the end
         subdivisions += 1
         return merge(merge_sort(first_half), merge_sort(second_half))
 
